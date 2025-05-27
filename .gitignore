@@ -1,2 +1,2 @@
-*.o
-test
+src/*.o
+bin/
