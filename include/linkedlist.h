@@ -17,8 +17,7 @@ struct LList
     struct Node *tail;
 };
 
-struct Node *
-Node_init();
+struct Node *Node_init();
 void Node_insert(struct LList *, const char *);
 struct Node *Node_find(struct LList *, const char *);
 bool Node_delete(struct LList *, const char *);

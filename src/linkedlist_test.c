@@ -17,7 +17,10 @@ void test_delete()
     struct Node *node = Node_init();
     struct LList list = (struct LList){
         .head = node, .tail = node};
-    assert(Node_delete(&list, ""));
+    bool deleted = Node_delete(&list, "");
+    assert(deleted);
+    assert(list.head == NULL);
+    assert(list.tail == NULL);
 }
 
 int main(void)

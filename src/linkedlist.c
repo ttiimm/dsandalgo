@@ -21,13 +21,20 @@ bool Node_delete(struct LList *list, const char *contents)
         // XXX: consider using strncmp
         if (strcmp(n->contents, contents) == 0)
         {
-            // 1. glue head to tail
+            // glue head to tail
             struct Node *prev = n->head;
             struct Node *next = n->tail;
 
-            // 2. free n
-            // TODO: if string heap allocated, free it too
+            if (prev)
+            {
+                prev->tail = next;
+            }
 
+            if (next)
+            {
+                next->head = prev;
+            }
+            free(n);
             return true;
         }
         n = n->tail;
